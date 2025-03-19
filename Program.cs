@@ -4,91 +4,204 @@ class CurrencyConverter
 {
     static void Main()
     {
-        Console.WriteLine("Calculator");
-        Console.WriteLine("Моля, въведете вид на парите (например BGN): ");
+        Console.WriteLine("Изберете език / Choose language: (BG/EN)");
+        string language = Console.ReadLine().ToLower();
+
+        if (language == "en")
+        {
+            Console.WriteLine("Calculator");
+            Console.WriteLine("Please enter the type of currency (e.g., BGN): ");
+        }
+        else
+        {
+            Console.WriteLine("Калкулатор");
+            Console.WriteLine("Моля, въведете вид на парите (например BGN): ");
+        }
         string money = Console.ReadLine().ToLower();
 
         if (money == "bgn")
         {
-            Console.WriteLine("Моля, въведете стойността в BGN: ");
+            if (language == "en")
+            {
+                Console.WriteLine("Please enter the amount in BGN: ");
+            }
+            else
+            {
+                Console.WriteLine("Моля, въведете стойността в BGN: ");
+            }
             int bgn = int.Parse(Console.ReadLine());
-            Console.WriteLine("Стойността на парите е: " + bgn + " BGN");
-
-            Console.WriteLine("Моля, въведете в каква валута искате да конвертирате (euro, usd): ");
+            if (language == "en")
+            {
+                Console.WriteLine("The amount is: " + bgn + " BGN");
+            }
+            else
+            {
+                Console.WriteLine("Стойността на парите е: " + bgn + " BGN");
+            }
+            if (language == "en")
+            {
+                Console.WriteLine("Enter the currency to convert to (euro, usd): ");
+            }
+            else
+            {
+                Console.WriteLine("Моля, въведете в каква валута искате да конвертирате (euro, usd): ");
+            }
             string money2 = Console.ReadLine().ToLower();
 
             if (money2 == "euro")
             {
-                // Преобразуване от BGN към EUR
-                int euro = (int)(bgn * 0.511);  // Приемаме, че 1 BGN = 0.511 EUR
-                Console.WriteLine("Стойността на парите е: " + euro + " евро.");
+                int euro = (int)(bgn * 0.511);
+                if (language == "en")
+                {
+                    Console.WriteLine("The amount is: " + euro + " EUR.");
+                }
+                else
+                {
+                    Console.WriteLine("Стойността на парите е: " + euro + " евро.");
+                }
             }
             else if (money2 == "usd")
             {
-                // Преобразуване от BGN към USD
-                int usd = (int)(bgn * 0.577);  // Приемаме, че 1 BGN = 0.577 USD
-                Console.WriteLine("Стойността на парите е: " + usd + " USD.");
+                int usd = (int)(bgn * 0.577);
+                if (language == "en")
+                {
+                    Console.WriteLine("The amount is: " + usd + " USD.");
+                }
+                else
+                {
+                    Console.WriteLine("Стойността на парите е: " + usd + " USD.");
+                }  
             }
             else
             {
-                Console.WriteLine("Невалидна валута.");
+                Console.WriteLine(language == "en" ? "Invalid currency." : "Невалидна валута.");
             }
         }
         else if (money == "euro")
         {
-            Console.WriteLine("Моля, въведете стойността в евро: ");
+            if (language == "en")
+            {
+                Console.WriteLine("Please enter the amount in EUR: ");
+            }   
+            else
+            {
+                Console.WriteLine("Моля, въведете стойността в евро: ");
+            }
             int euro = int.Parse(Console.ReadLine());
-            Console.WriteLine("Стойността на парите е: " + euro + " евро.");
+            if (language == "en")
+            {
+                Console.WriteLine("The amount is: " + euro + " EUR.");
+            }
+            else
+            {
+                Console.WriteLine("Стойността на парите е: " + euro + " евро.");
+            }
+            if (language == "en")
+            {
+                Console.WriteLine("Enter the currency to convert to (bgn, usd): ");
+            }
+            else
+            {
+                Console.WriteLine("Моля, въведете в каква валута искате да конвертирате (bgn, usd): ");
+            }
 
-            Console.WriteLine("Моля, въведете в каква валута искате да конвертирате (bgn, usd): ");
             string money2 = Console.ReadLine().ToLower();
 
             if (money2 == "bgn")
             {
-                // Преобразуване от EUR към BGN
-                int bgn = (int)(euro * 1.956);  // Приемаме, че 1 EUR = 1.956 BGN
-                Console.WriteLine("Стойността на парите е: " + bgn + " BGN.");
+                int bgn = (int)(euro * 1.956);
+                if (language == "en")
+                {
+                    Console.WriteLine("The amount is: " + bgn + " BGN.");
+                }
+                else
+                {
+                    Console.WriteLine("Стойността на парите е: " + bgn + " BGN.");
+                }  
             }
             else if (money2 == "usd")
             {
-                // Преобразуване от EUR към USD
-                int usd = (int)(euro * 1.14);  // Приемаме, че 1 EUR = 1.14 USD
-                Console.WriteLine("Стойността на парите е: " + usd + " USD.");
+                int usd = (int)(euro * 1.14);
+                if (language == "en")
+                {
+                    Console.WriteLine("The amount is: " + usd + " USD.");
+                }
+                else
+                {
+                    Console.WriteLine("Стойността на парите е: " + usd + " USD.");
+                } 
             }
             else
             {
-                Console.WriteLine("Невалидна валута.");
+                Console.WriteLine(language == "en" ? "Invalid currency." : "Невалидна валута.");
             }
         }
         else if (money == "usd")
         {
-            Console.WriteLine("Моля, въведете стойността в USD: ");
-            int usd = int.Parse(Console.ReadLine());
-            Console.WriteLine("Стойността на парите е: " + usd + " USD.");
+            if (language == "en")
+            {
+                Console.WriteLine("Please enter the amount in USD: ");
+            }
+            else
+            {
+                Console.WriteLine("Моля, въведете стойността в USD: ");
+            }
 
-            Console.WriteLine("Моля, въведете в каква валута искате да конвертирате (bgn, euro): ");
+            int usd = int.Parse(Console.ReadLine());
+
+            if (language == "en")
+            {
+                Console.WriteLine("The amount is: " + usd + " USD.");
+            }
+            else
+            {
+                Console.WriteLine("Стойността на парите е: " + usd + " USD.");
+            }
+
+            if (language == "en")
+            {
+                Console.WriteLine("Enter the currency to convert to (bgn, euro): ");
+            }
+            else
+            {
+                Console.WriteLine("Моля, въведете в каква валута искате да конвертирате (bgn, euro): ");
+            }  
+
             string money2 = Console.ReadLine().ToLower();
 
             if (money2 == "bgn")
             {
-                // Преобразуване от USD към BGN
-                int bgn = (int)(usd * 1.735);  // Приемаме, че 1 USD = 1.735 BGN
-                Console.WriteLine("Стойността на парите е: " + bgn + " BGN.");
+                int bgn = (int)(usd * 1.735);
+                if (language == "en")
+                {
+                    Console.WriteLine("The amount is: " + bgn + " BGN.");
+                }
+                else
+                {
+                    Console.WriteLine("Стойността на парите е: " + bgn + " BGN.");
+                } 
             }
             else if (money2 == "euro")
             {
-                // Преобразуване от USD към EUR
-                int euro = (int)(usd * 0.879);  // Приемаме, че 1 USD = 0.879 EUR
-                Console.WriteLine("Стойността на парите е: " + euro + " евро.");
+                int euro = (int)(usd * 0.879);
+                if (language == "en")
+                {
+                    Console.WriteLine("The amount is: " + euro + " EUR.");
+                }
+                else
+                {
+                    Console.WriteLine("Стойността на парите е: " + euro + " евро.");
+                }
             }
             else
             {
-                Console.WriteLine("Невалидна валута.");
+                Console.WriteLine(language == "en" ? "Invalid currency." : "Невалидна валута.");
             }
         }
         else
         {
-            Console.WriteLine("Невалиден вход. Моля, въведете валидна валута (BGN, EUR, USD).");
+            Console.WriteLine(language == "en" ? "Invalid input. Please enter a valid currency (BGN, EUR, USD)."
+                                               : "Невалиден вход. Моля, въведете валидна валута (BGN, EUR, USD).");
         }
     }
 }
